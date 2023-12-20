@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text align</title>
+</head>
+<body>
+    <canvas id="Demo" width="1000" height="1000"></canvas>
+    <script>
+        var cnvs = document.getElementById("Demo");
+
+        if (cnvs.getContext) {
+            var ctx = cnvs.getContext("2d");
+            
+            ctx.strokeStyle = "skyblue";
+            ctx.textAlign = "center";
+            ctx.moveTo(150, 60);
+            ctx.lineTo(150, 330);
+            ctx.stroke();
+
+            ctx.strokeStyle = "skyblue";
+            ctx.font = "20px sans-serif";
+
+            ctx.textAlign = "start";
+            ctx.fillText("Starting Position", 150, 100);
+
+            ctx.textAlign = "end";
+            ctx.fillText("End Position", 150, 150);
+
+            ctx.textAlign = "left";
+            ctx.fillText("Left Alignment", 150, 200);
+
+            ctx.textAlign = "center";
+            ctx.fillText("Center Alignment", 150, 250);
+
+            ctx.textAlign = "rignt";
+            ctx.fillText("Right Alignment", 80, 300);
+        }
+    </script>
+</body>
+</html>

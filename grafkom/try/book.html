@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 - Buku Halus</title>
+    <style>
+        body, html {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #canvas-container {
+            width: 95vw;
+            height: 95vh;
+            border: 3px solid #1c4668;       
+            background-color: rgb(91, 236, 241); 
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="BukuHalus"></canvas>
+    </div>
+
+    <script>
+        var canvas = document.getElementById('BukuHalus');
+        var context = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            drawLine();
+        }
+
+        function drawLine() {
+            var y = 0;
+            var spacing = 20;
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+            var halusPattern = [20, 10, 20, 20, 10, 20, 20, 10, 20];
+            var patternIndex = 0;
+
+            var tebal = 1;
+            var hitung = 1;
+
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            context.strokeStyle = '#1c4668';
+
+            while (y < canvasHeight) {
+                if (hitung > 2) {
+                    context.lineWidth = tebal;
+                }
+
+                context.beginPath();
+                context.moveTo(0, y);
+                context.lineTo(canvasWidth, y);
+                context.stroke();
+
+                spacing = halusPattern[patternIndex];
+                y += spacing;
+
+                patternIndex = (patternIndex + 1) % halusPattern.length;
+
+                if (hitung % 3 === 0) {
+                    tebal = 3;
+                } else {
+                    tebal = 1;
+                }
+
+                hitung++;
+            }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Draw Flag</title>
+    </head>
+    <body>
+        <canvas id="DemoCanvas" width="1330" height="590" style="border: 2px solid black; background-color: rgb(46, 255, 185);"></canvas>
+        <script>
+            var canvas = document.getElementById('DemoCanvas');
+            var context = canvas.getContext("2d");
+
+            //Mendapatkan tingi dan lebar canvas
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+
+            //Mendefinisikan jarak antara garis horizontal
+            var lineSpacing = 15;
+
+            //Menggambar garis horizontal dengan looping
+            for (var y = 0; y < canvasHeight; y += lineSpacing){
+                context.strokeStyle = "blue";
+                context.lineWidth = 2;
+                context.beginPath();
+                context.moveTo(0,y);
+                context.lineTo(canvasWidth, y);
+                context.stroke();
+            }
+
+            //Mendefinisikan jarak antara garis vertikal
+            var verticalLineSpacing = 15;
+
+            //Menggambar garis vertikal dengan looping
+            for (var x = 0; x < canvasWidth; x += verticalLineSpacing){
+                context.strokeStyle = "blue";
+                context.lineWidth = 2;
+                context.beginPath();
+                context.moveTo(x,0);
+                context.lineTo(x, canvasHeight);
+                context.stroke();    
+            
+            }
+            //bendera norwegia
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#BA0C2f';
+            ctx.fillRect(120,150,180,105);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#FFFFFF';
+            ctx.fillRect(165,150,25,105);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#00205B';
+            ctx.fillRect(120,195,180,15);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#ffffff';
+            ctx.fillRect(120,190,180,5);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#ffffff';
+            ctx.fillRect(120,210,180,5);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#00205B';
+            ctx.fillRect(170,150,15,105);
+
+            //bendera guinea
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#CE1126';
+            ctx.fillRect(120,300,180,105);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#FCD116';
+            ctx.fillRect(180,300,60,105);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#009460';
+            ctx.fillRect(240,300,60,105);
+            
+            //bendera b
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#CE2939';
+            ctx.fillRect(120,450,180,105);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#ffffff';
+            ctx.fillRect(120,485,180,35);
+
+            var ctx=canvas.getContext("2d");
+            ctx.fillStyle='#477050';
+            ctx.fillRect(120,520,180,35);
+
+        </script>
+    </body>
+</html>

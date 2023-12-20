@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tugas quotes</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="1000" height="1000"></canvas>
+    <script>
+        var canvas = document.getElementById('DemoCanvas');
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            var image1 = new Image();
+            image1.src = 'https://i.pinimg.com/564x/b1/af/fd/b1affd3d395045bb0aaf35390735d946.jpg';
+
+            image1.onload = function() {
+                var pat1 = context.createPattern(image1, "repeat");
+                context.fillStyle = pat1;
+                context.fillRect(20, 20, 540, 540);
+
+                context.font = 'bold 18px Helvetica';
+                context.fillStyle = 'black'; 
+                context.fillText('i turned 20', 50, 70);
+                context.fillText('今年', 110, 95);
+                context.fillText('and i', 170, 70);
+                context.fillText('20 歲', 170, 95);
+                context.fillText('still have no idea', 100, 130);
+                context.fillText('我還不知道', 120, 155);
+                context.fillText('what im', 320, 480);
+                context.fillText('自己在做', 300, 505);
+                context.fillText('doing.', 450, 480);
+                context.fillText('什麼', 430, 530);
+            };
+        }
+    </script>
+</body>
+</html>

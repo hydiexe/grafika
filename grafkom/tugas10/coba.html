@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropping Puzzle</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+            cursor: move;
+        }
+
+        #canvasContainer {
+            position: relative;
+            overflow: hidden;
+            background-color: #eee; /* Background color for puzzle pieces */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Original Image</h3>
+        <img id="originalImage" src="https://pbs.twimg.com/media/FP50OM4aIAEZZgd.jpg" alt="Original Image">
+
+        <h3>Cropped Image using puzzle cropping</h3>
+        <div id="canvasContainer">
+            <canvas id="canvas" width="1200" height="675"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const canvasContainer = document.getElementById('canvasContainer');
+
+        const originalImage = document.getElementById('originalImage');
+
+        const puzzlePieces = [];
+        const pieceSize = 400; // Ganti dengan ukuran potongan puzzle
+
+        let selectedPiece = null;
+        let offsetX, offsetY;
+
+        originalImage.onload = function () {
+            initializePuzzle();
+            drawPuzzle();
+        };
+
+        function initializePuzzle() {
+            for (let y = 0; y < originalImage.height; y += pieceSize) {
+                for (let x = 0; x < originalImage.width; x += pieceSize) {
+                    const piece = {
+                        x: x,
+                        y: y,
+                        width: pieceSize,
+                        height: pieceSize,
+                    };
+                    puzzlePieces.push(piece);
+                }
+            }
+
+            // Shuffle the puzzle pieces more randomly
+            shuffleArray(puzzlePieces, 4); // Adjust the complexity as needed
+
+            canvas.addEventListener('mousedown', onMouseDown);
+            canvas.addEventListener('mousemove', onMouseMove);
+            canvas.addEventListener('mouseup', onMouseUp);
+        }
+
+        function drawPuzzle() {
+            puzzlePieces.forEach(piece => {
+                ctx.drawImage(originalImage, piece.x, piece.y, piece.width, piece.height, piece.x, piece.y, piece.width, piece.height);
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPuzzle();
+
+            if (selectedPiece) {
+                ctx.globalAlpha = 0.5;
+                ctx.drawImage(originalImage, selectedPiece.x, selectedPiece.y, selectedPiece.width, selectedPiece.height, offsetX, offsetY, selectedPiece.width, selectedPiece.height);
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        function onMouseDown(e) {
+            const mouseX = e.clientX - canvas.getBoundingClientRect().left;
+            const mouseY = e.clientY - canvas.getBoundingClientRect().top;
+
+            puzzlePieces.forEach(piece => {
+                if (mouseX >= piece.x && mouseX <= piece.x + piece.width &&
+                    mouseY >= piece.y && mouseY <= piece.y + piece.height) {
+                    selectedPiece = piece;
+                    offsetX = mouseX - piece.x;
+                    offsetY = mouseY - piece.y;
+                    canvas.style.cursor = 'grabbing';
+                }
+            });
+        }
+
+        function onMouseMove(e) {
+            if (selectedPiece) {
+                const mouseX = e.clientX - canvas.getBoundingClientRect().left;
+                const mouseY = e.clientY - canvas.getBoundingClientRect().top;
+
+                selectedPiece.x = mouseX - offsetX;
+                selectedPiece.y = mouseY - offsetY;
+
+                draw();
+            }
+        }
+
+        function onMouseUp() {
+            selectedPiece = null;
+            canvas.style.cursor = 'move';
+        }
+
+        // Function to shuffle array elements
+        function shuffleArray(array, complexity) {
+            for (let i = 0; i < complexity; i++) {
+                array.sort(() => Math.random() - 0.5);
+            }
+        }
+    </script>
+</body>
+</html>

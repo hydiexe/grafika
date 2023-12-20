@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATH QUADRATIC BEZIER</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("DemoCanvas");
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.lineWidth = 5;
+
+            ctx.beginPath();
+            ctx.moveTo(100, 20);
+
+            ctx.lineTo(200, 160);
+            ctx.strokeStyle = 'red';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(200, 160);
+            ctx.quadraticCurveTo(230, 200, 260, 100);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(260, 100);
+            ctx.bezierCurveTo(290, -40, 300, 190, 400, 150);
+            ctx.strokeStyle = "green";
+            ctx.stroke();
+            ctx.closePath();
+        }
+    </script>
+</body>
+</html>

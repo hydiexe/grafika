@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGO TELEGRAM</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("DemoCanvas");
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            //background
+            ctx.beginPath();
+            ctx.arc(240, 240, 180, 0, 2 * Math.PI);
+            ctx.fillStyle = '#229ed9';
+            ctx.fill();
+
+            //pesawat kertas
+            ctx.strokeStyle = "white";
+            ctx.fillStyle = "white"; 
+            
+            ctx.beginPath();
+            ctx.moveTo(110, 220);
+            ctx.lineTo(300, 140);
+            ctx.quadraticCurveTo(333, 125, 330, 150);
+            ctx.lineTo(310, 330);
+            ctx.quadraticCurveTo(310, 370, 280, 348);
+            ctx.lineTo(205, 290);
+            ctx.quadraticCurveTo(198, 275, 215, 260);
+            ctx.lineTo(270, 200);
+            ctx.quadraticCurveTo(280, 180, 260, 190);
+            ctx.lineTo(185, 250);
+            ctx.quadraticCurveTo(170, 263, 160, 260);
+            ctx.lineTo(120, 245);  
+            ctx.quadraticCurveTo(85, 230, 110, 220);
+
+            ctx.fill();
+            ctx.stroke();
+        }
+    </script>
+    <p>
+        Nama: Halimatus Sa'diyah
+        <br>NIM: 2155202010</br>
+    </p>
+</body>
+</html>

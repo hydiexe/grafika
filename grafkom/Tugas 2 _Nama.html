@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 - Nama</title>
+    <style>
+        #Canvas{
+        border: 3px solid #517f91;
+        background-color: beige;
+        }
+        </style>
+</head>
+<body>
+    <canvas id="Canvas" width="540" height="240"></canvas>
+    <script>
+        var canvas = document.getElementById('Canvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+            
+            ctx.fillStyle = "grey"; 
+            // fillRect(x, y, width, height)
+
+            // huruf D
+            ctx.fillRect(60, 50, 20, 120); 
+            ctx.fillRect(50, 50, 70, 20); 
+            ctx.fillRect(50, 150, 70, 20); 
+            ctx.fillRect(120, 65, 20, 90);
+
+            // huruf I
+            ctx.fillRect(150, 50, 40, 20);
+            ctx.fillRect(160, 50, 20, 120);
+            ctx.fillRect(150, 150, 40, 20);
+
+            // huruf Y
+            ctx.fillRect(200, 50, 20, 40); 
+            ctx.fillRect(210, 85, 20, 20); //pixel kecil
+            ctx.fillRect(240, 85, 20, 20); //pixel kecil
+            ctx.fillRect(250, 50, 20, 40); 
+            ctx.fillRect(225, 100, 20, 70);
+            ctx.fillRect(215, 150, 40, 20); // bawah
+
+            // huruf A
+            ctx.fillRect(280, 80, 20, 90); //garis kiri 
+            ctx.fillRect(340, 80, 20, 90); //kanan
+            ctx.fillRect(305, 50, 30, 20); // atas
+            ctx.fillRect(290, 65, 20, 20); // kecil
+            ctx.fillRect(330, 65, 20, 20);
+            ctx.fillRect(300, 100, 50, 20); 
+            ctx.fillRect(270, 150, 40, 20);
+            ctx.fillRect(330, 150, 40, 20);
+
+            // huruf H
+            ctx.fillRect(390, 60, 20, 100); 
+            ctx.fillRect(390, 100, 80, 20);  
+            ctx.fillRect(450, 60, 20, 90);
+            //bawah
+            ctx.fillRect(380, 150, 40, 20);
+            ctx.fillRect(440, 150, 40, 20);
+            //atas
+            ctx.fillRect(380, 50, 40, 20);
+            ctx.fillRect(440, 50, 40, 20);
+        }
+    </script>
+</body>
+</html>

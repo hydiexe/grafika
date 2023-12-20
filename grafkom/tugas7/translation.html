@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translation</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="900" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById("DemoCanvas");
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.beginPath();
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "skyblue";
+            ctx.strokeRect(60, 60, 160, 160);
+
+            ctx.translate(120, 120);
+            ctx.strokeStyle = "pink";
+            ctx.strokeRect(60, 60, 160, 160);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>japanese</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #JapaneseFlag {
+            margin: 20px;
+            border: 3px solid rgb(42, 48, 107);
+            background-color: rgb(194, 230, 240);
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="JapaneseFlag"></canvas>
+    <script>
+        var canvas = document.getElementById('JapaneseFlag');
+        var context = canvas.getContext('2d');
+        var gridSize = 20;
+
+        function drawCanvas() {
+            canvas.width = window.innerWidth - 20;
+            canvas.height = window.innerHeight - 40;
+
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            for (var y = 0; y <= canvasHeight; y += gridSize) {
+                if (y + gridSize <= canvasHeight) {
+                    context.moveTo(0, y);
+                    context.lineTo(canvasWidth, y);
+                }
+            }
+
+            for (var x = 0; x <= canvasWidth; x += gridSize) {
+                if (x + gridSize <= canvasWidth) {
+                    context.moveTo(x, 0);
+                    context.lineTo(x, canvasHeight);
+                }
+            }
+
+            context.strokeStyle = 'gray';
+            context.lineWidth = 2;
+            context.stroke();
+
+            context.fillStyle = '#ffffff';
+            context.fillRect(50, 50, 100, 60);
+
+            var circleColor = 'red';
+            var circleRadius = 10;
+            context.beginPath();
+            context.arc(100, 80, circleRadius, 0, 2 * Math.PI);
+            context.fillStyle = circleColor;
+            context.fill();
+            
+        }
+
+        window.addEventListener('load', drawCanvas);
+        window.addEventListener('resize', drawCanvas);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text metric</title>
+</head>
+<body>
+    <canvas id="Demo" width="1000" height="1000"></canvas>
+    <script>
+        var cnvs = document.getElementById("Demo");
+
+        if (cnvs.getContext) {
+            var ctx = cnvs.getContext("2d");
+            var text = 'Semangat.. Masih Belum PKL KKN apalagi Skrip[sweet]';
+            ctx.font = "24px Unknown Font, sans-serif";
+            ctx.fillText(text, 120, 40);
+
+            var metrics = ctx.measureText(text);
+            alert(metrics.width);
+        }
+    </script>
+</body>
+</html>

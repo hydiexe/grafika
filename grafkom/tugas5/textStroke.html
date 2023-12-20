@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text stroke</title>
+</head>
+<body>
+    <canvas id="Demo" width="500" height="600"></canvas>
+    <script>
+        var cnvs = document.getElementById("Demo");
+
+        if (cnvs.getContext) {
+            var ctx = cnvs.getContext("2d");
+            ctx.font = 'italic 32px Unknown Font, sans-serif';
+            ctx.strokeStyle = "skyblue";
+            ctx.lineWidth = "1.5";
+
+            for (var i = 40; i < 200; i += 40) {
+                ctx.strokeText("ILKOM 2023", i, i);
+            }
+        }
+    </script>
+</body>
+</html>

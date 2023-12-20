@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGO BRI</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="650" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById("DemoCanvas");
+        
+        if (canvas.getContext) {
+            ctx = document.getElementById("DemoCanvas").getContext("2d");
+
+            //rectangle rounded corner
+            function roundRect(x, y, w, h, radius) {
+                var canvas = document.getElementById("DemoCanvas");
+                var context = canvas.getContext("2d");
+                var r = x + w;
+                var b = y + h;
+                context.beginPath();
+                context.strokeStyle = "#00529c";
+                context.lineWidth = "25";
+                context.moveTo(x + radius, y);
+                context.lineTo(r - radius, y);
+                context.quadraticCurveTo(r, y, r, y + radius);
+                context.lineTo(r, y + h - radius);
+                context.quadraticCurveTo(r, b, r - radius, b);
+                context.lineTo(x + radius, b);
+                context.quadraticCurveTo(x, b, x, b - radius);
+                context.lineTo(x, y + radius);
+                context.quadraticCurveTo(x, y, x + radius, y);
+                context.stroke();
+                context.closePath();
+            }
+            roundRect(30, 90, 190, 180, 20);
+
+            //logo bri inner
+
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.lineWidth = "20";
+            //b atas
+            ctx.bezierCurveTo(80, 90, 140, 125, 70, 174);
+            //b bawah
+            ctx.moveTo(75, 170);
+            ctx.bezierCurveTo(56, 180, 140, 220, 75, 270);
+            
+            ctx.moveTo(140, 90);
+            ctx.bezierCurveTo(140, 90, 210, 125, 178, 162);
+
+            ctx.strokeStyle = "#00529c";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.lineWidth = "20";
+            ctx.lineCap = "square";
+            //b
+            ctx.moveTo(85, 160);
+            ctx.lineTo(65, 180);
+            ctx.moveTo(65, 180);
+            ctx.lineTo(85, 200);
+            //r
+            ctx.moveTo(170, 170);
+            ctx.lineTo(150, 190);
+            ctx.moveTo(150, 190);
+            ctx.lineTo(210, 250);
+            ctx.stroke();
+
+            //huruf bri
+            ctx.font = "220px Arial";
+            ctx.fillStyle = "#00529c";
+            ctx.fillText("B", 250, 270);
+
+            ctx.font = "220px Arial";
+            ctx.fillStyle = "#00529c";~
+            ctx.fillText("R", 380, 270);
+
+            ctx.font = "220px Arial";
+            ctx.fillStyle = "#00529c";
+            ctx.fillText("I", 530, 270);
+        }
+
+    </script>
+    <p>
+        Nama: Halimatus Sa'diyah
+        <br>NIM: 2155202010</br>
+    </p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>4. circleColor</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="700" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById('DemoCanvas');
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            var g1= context.createRadialGradient(45, 45, 10, 52, 50, 30);
+            g1.addColorStop(0, '#A7D30C');
+            g1.addColorStop(0.9, '#019F62');
+            g1.addColorStop(1, 'rgba(1, 159, 98, 0)');
+            var g2 = context.createRadialGradient(125, 45, 20, 132, 50, 30);
+            g1.addColorStop(0, '#FF5F98');
+            g1.addColorStop(0.9, '#FF0188');
+            g1.addColorStop(1, 'rgba(225, 1, 136, 0)');
+
+            context.fillStyle = g1;
+            context.fillRect(0, 0, 150, 150);
+            context.fillStyle = g2;
+            context.fillRect(100, 0, 170, 150);
+        }
+    </script>
+</body>
+</html>

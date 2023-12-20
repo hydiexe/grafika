@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tugas 7</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="1320" height="605"></canvas>
+    <script>
+        var canvas = document.getElementById('DemoCanvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.scale (2, 2);
+
+            for (i = 0; i < 1350; i += 10) {
+                ctx.moveTo(0, i);
+                ctx.strokeStyle = "#e8d8d8";
+                ctx.lineTo(canvas.width, i);
+                ctx.stroke();
+            }
+            for (i = 0; i < 670; i += 10) {
+                ctx.moveTo(i, 0);
+                ctx.strokeStyle = "#e8d8d8";
+                ctx.lineTo(i, canvas.height);
+                ctx.stroke();
+            }
+
+            var chan = new Image();
+            var leebit = new Image();
+            var bbokkari = new Image();
+
+            chan.src = 'https://gcdnb.pbrd.co/images/rBKSz4dT9q55.jpg?o=1';
+            leebit.src = 'https://gcdnb.pbrd.co/images/Rca82Ci8ZCwa.jpg?o=1';
+            bbokkari.src = 'https://gcdnb.pbrd.co/images/iNm84zGpA9PG.png?o=1';
+
+            chan.onload = function() {
+                var pat1 = ctx.createPattern(chan, "repeat");
+                ctx.fillStyle = pat1;
+                ctx.translate(30, 30);
+                ctx.fillRect(0, 0, 100, 130);
+            };
+
+            leebit.onload = function() {
+                var pat2 = ctx.createPattern(leebit, "repeat");
+                ctx.fillStyle = pat2;
+                ctx.translate(100, 150);
+                ctx.rotate((Math.PI / 180) * 45);
+                ctx.fillRect(0, 0, 100, 100);
+            };
+
+            var ctx2 = canvas.getContext('2d');
+            bbokkari.onload = function() {
+                ctx2.setTransform(1, 0, 0, 1, 0, 0);
+                var pat3 = ctx2.createPattern(bbokkari, "repeat");
+                ctx2.translate(300, 200);
+                ctx2.rotate((Math.PI / 180) * -60);
+                ctx2.fillStyle = pat3;
+                ctx2.fillRect(0, 0, 100, 100);
+            };
+        }
+    </script>
+</body>
+</html>

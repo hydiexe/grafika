@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>5. pattern</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="700" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById('DemoCanvas');
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            var image1 = new Image();
+            var image2 = new Image();
+            image1.src = 'https://img.freepik.com/free-vector/topographic-contour-lines-map-seamless-pattern_1284-52862.jpg?size=626&ext=jpg&ga=GA1.1.886939350.1669302669&semt=sph';
+            image2.src = 'https://images.rawpixel.com/image_350/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjE5NS1zYXNpLTM2LXBhdHRlcm5fMi5qcGc.jpg';
+
+            image1.onload = function() {
+                var pat1 = context.createPattern(image1, "repeat");
+                context.lineWidth = 4;
+
+                context.beginPath();
+                context.moveTo(50, 10);
+                context.lineTo(150, 10);
+                context.strokeStyle = pat1;
+                context.stroke();
+                context.fillStyle = pat1;
+                context.fillRect(50, 20, 100, 150);
+            };
+
+            image2.onload = function() {
+                var pat2 = context.createPattern(image2, "repeat");
+
+                context.beginPath();
+                context.moveTo(200, 10);
+                context.lineTo(300, 10);
+                context.strokeStyle = pat2;
+                context.stroke();
+                context.fillStyle = pat2;
+                context.fillRect(200, 20, 100, 150);
+            };
+        }
+    </script>
+</body>
+</html>

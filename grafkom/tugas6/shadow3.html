@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Canvas - Shadow</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="600"></canvas>
+    <script>
+        var canvas = document.getElementById("DemoCanvas");
+
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = 'green';
+            ctx.shadowColor = '#898';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 20;
+            ctx.shadowOffsetY = 20;
+
+            ctx.font = 'italic 32px sans-serif';
+            ctx.fillText('Grafika Komputer ILKOM', 10, 50);
+
+            ctx.fillStyle = 'red';
+            ctx.shadowColor = '#998';
+            ctx.shadowBlur = 1;
+            ctx.shadowOffsetX = 9;
+            ctx.shadowOffsetY = 7;
+
+            ctx.font = 'italic 32px sans-serif';
+            ctx.fillText('UNU Blitar', 10, 150);
+        }
+    </script>
+</body>
+</html>

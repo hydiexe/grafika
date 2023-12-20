@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Canvas</title>
+    <style>
+        #canvas-container {
+            width: 500px;
+            height: 500px; 
+            border: 3px solid #1c4668;       
+            background-color: #fdfdc6;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="GridCanvas" width="500" height="500"></canvas>
+    </div>
+    
+    
+    <script>
+        var canvas = document.getElementById('GridCanvas');
+
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            context.moveTo(300, 100);
+            context.lineTo(40, 200);
+            context.lineWidth = 4; 
+            context.strokeStyle = 'gray';
+
+            context.stroke();
+        }
+        
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            var gridSize = 20; 
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+
+            for (var y = 0; y < canvasHeight; y += gridSize) {
+                context.moveTo(0, y);
+                context.lineTo(canvasWidth, y);
+            }
+
+            for (var x = 0; x < canvasWidth; x += gridSize) {
+                context.moveTo(x, 0);
+                context.lineTo(x, canvasHeight);
+            }
+
+            context.strokeStyle = 'gray';
+            context.lineWidth = 2; 
+            context.stroke();
+        }
+    </script>
+</body>
+</html>

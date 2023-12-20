@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Example</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // 1. Membuat rectangle dengan fillRect()
+        ctx.fillStyle = "blue"; // Ganti warna sesuai keinginan Anda
+        ctx.fillRect(50, 50, 100, 50); // Koordinat (x, y, width, height)
+
+        // 2. Membuat buku halus di bawah rectangle
+        ctx.fillStyle = "gray"; // Ganti warna sesuai keinginan Anda
+        ctx.fillRect(50, 110, 100, 5); // Koordinat (x, y, width, height)
+
+        // 3. Membuat rectangle seperti code gambar 3 dan 4
+        ctx.strokeStyle = "red"; // Ganti warna sesuai keinginan Anda
+        ctx.lineWidth = 2; // Ganti ketebalan garis sesuai keinginan Anda
+        ctx.strokeRect(200, 50, 100, 50); // Koordinat (x, y, width, height)
+
+        // Menghapus area tertentu dalam rectangle
+        ctx.clearRect(225, 75, 50, 10); // Koordinat (x, y, width, height)
+
+        // 4. Membuat bendera
+        // Bendera Kostarika
+        ctx.fillStyle = "blue";
+        ctx.fillRect(50, 150, 100, 50);
+        ctx.fillStyle = "white";
+        ctx.fillRect(50, 150, 100, 10);
+
+        // Bendera Latvia
+        ctx.fillStyle = "red";
+        ctx.fillRect(200, 150, 100, 10);
+        ctx.fillStyle = "white";
+        ctx.fillRect(200, 160, 100, 10);
+        ctx.fillStyle = "red";
+        ctx.fillRect(200, 170, 100, 10);
+
+        // Bendera Botswana
+        ctx.fillStyle = "blue";
+        ctx.fillRect(350, 150, 100, 50);
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.moveTo(350, 150);
+        ctx.lineTo(400, 175);
+        ctx.lineTo(350, 200);
+        ctx.closePath();
+        ctx.fill();
+    </script>
+</body>
+</html>

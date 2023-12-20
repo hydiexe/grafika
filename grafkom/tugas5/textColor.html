@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text color</title>
+</head>
+<body>
+    <canvas id="Demo" width="1000" height="1000"></canvas>
+    <script>
+        var cnvs = document.getElementById("Demo");
+
+        if (cnvs.getContext) {
+            var ctx = cnvs.getContext("2d");
+            grad = ctx.createLinearGradient(0, 0 , cnvs.width, 0);
+            
+            grad.addColorStop ("0", "red");
+            grad.addColorStop (".25", "yellow");
+            grad.addColorStop (".50", "green");
+            grad.addColorStop (".75", "blue");
+            grad.addColorStop ("1.0", "magenta");
+
+            ctx.font = "italic 700 25px Unknown Font, sans-serif";
+            ctx.fillStyle = grad;
+
+            for (var i = 50; i < 450; i += 50) {
+                ctx.fillText ("Semangat Masih Semester 5 !!!", i, i)
+            }
+        }
+    </script>
+</body>
+</html>

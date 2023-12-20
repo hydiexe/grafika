@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATH 1</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("DemoCanvas");
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "green";
+            ctx.moveTo(0, 0);
+            ctx.lineTo(160, 160);
+            ctx.lineTo(200, 160);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.strokeStyle = "blue";
+            ctx.moveTo(0, 0);
+            ctx.lineTo(50, 170);
+            ctx.stroke();
+            
+            ctx.closePath();
+        }
+    </script>
+</body>
+</html>

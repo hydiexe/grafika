@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAG AND DROP</title>
+    <style type="text/css">
+        #boxA, #boxB {
+            float: left;
+            padding: 10px;
+            margin: 10px;
+            -moz-user-select: none;
+                user-select: none;
+
+        }
+        #boxA {
+            background-color: blueviolet;
+            width: 75px;
+            height: 75px;
+        }
+        #boxB {
+            background-color: pink;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function dragStart(ev) {
+            ev.dataTransfer.affectAllowed = 'move';
+            ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+            ev.dataTransfer.setDragImage(ev.target, 0, 0);
+            return true;
+        }
+        function dragEnter(ev) {
+            event.preventDefault();
+            return true;
+        }
+        function dragOver(ev) {
+            return false;
+        }
+        function dragDrop(ev) {
+            var src = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(src));
+            ev.stopPropagation();
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>DROP HTML5 DEMO</h2>
+        <div>Coba pindah purple box ke pink box.</div>
+        <div id="boxA" draggable="true" ondragstart="return dragStart(event)">
+            <p>Drag Me!</p>
+        </div>
+        <div 
+            id="boxB"
+            ondragenter="return dragEnter(event)"
+            ondrop="return dragDrop(event)"
+            ondragover="return dragOver(event)"
+        >Dustbin</div>
+    </center>
+</body>
+</html>
